@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///C:/Users/IT/Desktop/NABANITA%20ADHIKARY/INDEX.HTML -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Simple Product Page</title>
+  <style>
+    body { font-family: Arial; text-align: center; }
+    .product { border: 1px solid #ddd; padding: 10px; margin: 10px auto; width: 200px; }
+    button { padding: 5px 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>My Simple Store</h1>
+  <div id="product-list"><div class="product">
+          <h3>Pen</h3>
+          <p>Blue ink pen</p>
+          <p>Price: ₹10</p>
+          <button onclick="addToCart()">Add to Cart</button>
+        </div><div class="product">
+          <h3>Notebook</h3>
+          <p>100 pages</p>
+          <p>Price: ₹45</p>
+          <button onclick="addToCart()">Add to Cart</button>
+        </div><div class="product">
+          <h3>Bottle</h3>
+          <p>1 litre water bottle</p>
+          <p>Price: ₹120</p>
+          <button onclick="addToCart()">Add to Cart</button>
+        </div></div>
+  <h2>Cart Items: <span id="cart-count">0</span></h2>
+
+  <script>
+    let products = [
+      { name: "Pen", description: "Blue ink pen", price: 10 },
+      { name: "Notebook", description: "100 pages", price: 45 },
+      { name: "Bottle", description: "1 litre water bottle", price: 120 }
+    ];
+
+    let cartCount = 0;
+
+    function loadProducts() {
+      let container = document.getElementById("product-list");
+      products.forEach((p) => {
+        let div = document.createElement("div");
+        div.className = "product";
+        div.innerHTML = `
+          <h3>${p.name}</h3>
+          <p>${p.description}</p>
+          <p>Price: ₹${p.price}</p>
+          <button onclick="addToCart()">Add to Cart</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function addToCart() {
+      cartCount++;
+      document.getElementById("cart-count").innerText = cartCount;
+    }
+
+    loadProducts();
+  </script>
+
+
+</body></html>
